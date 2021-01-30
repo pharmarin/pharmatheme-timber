@@ -4,8 +4,127 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "094f082e31a1b279a65ff97477514b6a",
+    "content-hash": "1c0fa121e4e8d5fda5088d1e379caf00",
     "packages": [
+        {
+            "name": "altorouter/altorouter",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dannyvankooten/AltoRouter.git",
+                "reference": "39c50092470128c12284d332bb57f306bb5b58e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dannyvankooten/AltoRouter/zipball/39c50092470128c12284d332bb57f306bb5b58e4",
+                "reference": "39c50092470128c12284d332bb57f306bb5b58e4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "4.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "AltoRouter.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Danny van Kooten",
+                    "email": "dannyvankooten@gmail.com",
+                    "homepage": "http://dannyvankooten.com/"
+                },
+                {
+                    "name": "Koen Punt",
+                    "homepage": "https://github.com/koenpunt"
+                },
+                {
+                    "name": "niahoo",
+                    "homepage": "https://github.com/niahoo"
+                }
+            ],
+            "description": "A lightning fast router for PHP",
+            "homepage": "https://github.com/dannyvankooten/AltoRouter",
+            "keywords": [
+                "lightweight",
+                "router",
+                "routing"
+            ],
+            "support": {
+                "issues": "https://github.com/dannyvankooten/AltoRouter/issues",
+                "source": "https://github.com/dannyvankooten/AltoRouter/tree/master"
+            },
+            "time": "2015-11-30T00:47:43+00:00"
+        },
+        {
+            "name": "asm89/twig-cache-extension",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/asm89/twig-cache-extension.git",
+                "reference": "13787226956ec766f4770722082288097aebaaf3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/asm89/twig-cache-extension/zipball/13787226956ec766f4770722082288097aebaaf3",
+                "reference": "13787226956ec766f4770722082288097aebaaf3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "twig/twig": "^1.0|^2.0"
+            },
+            "require-dev": {
+                "doctrine/cache": "~1.0",
+                "phpunit/phpunit": "^5.0 || ^4.8.10"
+            },
+            "suggest": {
+                "psr/cache-implementation": "To make use of PSR-6 cache implementation via PsrCacheAdapter."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander",
+                    "email": "iam.asm89@gmail.com"
+                }
+            ],
+            "description": "Cache fragments of templates directly within Twig.",
+            "homepage": "https://github.com/asm89/twig-cache-extension",
+            "keywords": [
+                "cache",
+                "extension",
+                "twig"
+            ],
+            "support": {
+                "issues": "https://github.com/asm89/twig-cache-extension/issues",
+                "source": "https://github.com/asm89/twig-cache-extension/tree/1.4.0"
+            },
+            "abandoned": "twig/cache-extension",
+            "time": "2020-01-01T20:47:37+00:00"
+        },
         {
             "name": "composer/installers",
             "version": "v1.10.0",
@@ -315,31 +434,30 @@
         },
         {
             "name": "timber/timber",
-            "version": "2.0.0-alpha.1",
+            "version": "1.18.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timber/timber.git",
-                "reference": "41f0d6f61c4121095c6dc810050fc93f85245e68"
+                "reference": "18766d1af8650ca919534cc497e7f0e8d82423a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timber/timber/zipball/41f0d6f61c4121095c6dc810050fc93f85245e68",
-                "reference": "41f0d6f61c4121095c6dc810050fc93f85245e68",
+                "url": "https://api.github.com/repos/timber/timber/zipball/18766d1af8650ca919534cc497e7f0e8d82423a3",
+                "reference": "18766d1af8650ca919534cc497e7f0e8d82423a3",
                 "shasum": ""
             },
             "require": {
+                "asm89/twig-cache-extension": "~1.0",
                 "composer/installers": "~1.0",
-                "php": "^7.0",
-                "twig/cache-extension": "^1.5.0",
-                "twig/twig": "^2.10"
+                "php": ">=5.3.0|7.*",
+                "twig/twig": "^1.41|^2.10",
+                "upstatement/routes": "0.5"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-                "johnpbloch/wordpress": ">=5.4.0",
-                "php-stubs/wp-cli-stubs": "^2.2.0",
-                "phpunit/phpunit": "7.*",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "johnpbloch/wordpress": "*",
+                "phpunit/phpunit": "5.7.16|6.*",
                 "squizlabs/php_codesniffer": "3.*",
-                "szepeviktor/phpstan-wordpress": "^0.6.0",
                 "wp-coding-standards/wpcs": "^2.0",
                 "wpackagist-plugin/advanced-custom-fields": "5.*",
                 "wpackagist-plugin/co-authors-plus": "3.2.*|3.4.*"
@@ -382,79 +500,7 @@
                 "issues": "https://github.com/timber/timber/issues",
                 "source": "https://github.com/timber/timber"
             },
-            "time": "2020-11-24T18:18:39+00:00"
-        },
-        {
-            "name": "twig/cache-extension",
-            "version": "v1.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twigphp/twig-cache-extension.git",
-                "reference": "2c243643f59132194458bd03c745b079bbb12e78"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/twig-cache-extension/zipball/2c243643f59132194458bd03c745b079bbb12e78",
-                "reference": "2c243643f59132194458bd03c745b079bbb12e78",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "twig/twig": "^1.38|^2.4|^3.0"
-            },
-            "require-dev": {
-                "doctrine/cache": "~1.0",
-                "phpunit/phpunit": "^5.0 || ^4.8.36",
-                "psr/cache": "^1.0",
-                "sebastian/comparator": "^1.2.4|^2.0"
-            },
-            "suggest": {
-                "psr/cache-implementation": "To make use of PSR-6 cache implementation via PsrCacheAdapter."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.5-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alexander",
-                    "email": "iam.asm89@gmail.com"
-                }
-            ],
-            "description": "Cache fragments of templates directly within Twig.",
-            "homepage": "https://github.com/twigphp/twig-cache-extension",
-            "keywords": [
-                "cache",
-                "extension",
-                "twig"
-            ],
-            "support": {
-                "issues": "https://github.com/twigphp/twig-cache-extension/issues",
-                "source": "https://github.com/twigphp/twig-cache-extension/tree/v1.5.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/twig/twig",
-                    "type": "tidelift"
-                }
-            ],
-            "abandoned": "twig/cache-extra",
-            "time": "2020-10-04T09:56:48+00:00"
+            "time": "2020-10-11T15:08:40+00:00"
         },
         {
             "name": "twig/twig",
@@ -534,6 +580,62 @@
                 }
             ],
             "time": "2021-01-05T15:34:33+00:00"
+        },
+        {
+            "name": "upstatement/routes",
+            "version": "0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Upstatement/routes.git",
+                "reference": "3267d28be0a73f197087d58384e1a358d85671b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Upstatement/routes/zipball/3267d28be0a73f197087d58384e1a358d85671b6",
+                "reference": "3267d28be0a73f197087d58384e1a358d85671b6",
+                "shasum": ""
+            },
+            "require": {
+                "altorouter/altorouter": "^1.1.0",
+                "composer/installers": "~1.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "dev-master",
+                "wp-cli/wp-cli": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Routes": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jared Novack",
+                    "email": "jared@upstatement.com",
+                    "homepage": "http://upstatement.com"
+                }
+            ],
+            "description": "Manage rewrites and routes in WordPress with this dead-simple plugin",
+            "homepage": "http://routes.upstatement.com",
+            "keywords": [
+                "redirects",
+                "rewrite",
+                "routes",
+                "routing"
+            ],
+            "support": {
+                "issues": "https://github.com/jarednova/routes/issues",
+                "source": "https://github.com/jarednova/routes",
+                "wiki": "https://github.com/jarednova/routes/wiki"
+            },
+            "time": "2018-12-04T01:13:41+00:00"
         }
     ],
     "packages-dev": [
@@ -2547,9 +2649,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "timber/timber": 15
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
