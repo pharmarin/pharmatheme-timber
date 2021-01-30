@@ -15,5 +15,9 @@
   "scripts": {
     "build": "postcss static/css/tailwind.css -o style.css",
     "zip": "zip -r pharmatheme-timber.zip . -x node_modules/\\*"
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.16.1",
+    "prettier": "^2.2.1"
   }
 }
