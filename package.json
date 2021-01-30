@@ -13,6 +13,7 @@
     "tailwindcss": "^2.0.2"
   },
   "scripts": {
-    "build": "postcss static/css/tailwind.css -o style.css"
+    "build": "postcss static/css/tailwind.css -o style.css",
+    "zip": "zip -r pharmatheme-timber.zip . -x node_modules/\\*"
   }
 }
