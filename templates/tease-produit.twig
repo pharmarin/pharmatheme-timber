@@ -1,0 +1,12 @@
+{% extends "tease.twig" %}
+
+{% block content %}
+	{% include "partial/card-horizontal.twig" with {
+	    title: post.title,
+	    subtitle: "Nutergia",
+	    link: post.link,
+	    content: "", 
+	    thumbnail: post.thumbnail.src,
+	    tags: post.tags
+    } %}
+{% endblock %}

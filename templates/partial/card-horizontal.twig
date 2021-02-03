@@ -1,0 +1,14 @@
+<{% if link %}a href="{{ link }}"{% else %}div{% endif %}>
+    <div class="max-w-sm w-full lg:max-w-full lg:flex rounded-md shadow-lg">
+        <div class="p-2">
+            <img class="w-32 h-48 object-contain" src="{{ thumbnail }}" />
+        </div>
+        <div class="p-4 flex flex-col justify-between leading-normal">
+            <div class="mb-8">
+                <div class="text-gray-900 font-bold text-xl">{{ title }}</div>
+                <div class="text-gray-800 italic text-lg mb-2">{{ subtitle }}</div>
+                <p class="text-gray-700 text-base">{{ content.read_more("Voir la suite") }}</p>
+            </div>
+        </div>
+    </div>
+</{% if link %}a{% else %}div{% endif %}>
