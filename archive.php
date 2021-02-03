@@ -38,8 +38,6 @@ if (is_day()) {
   array_unshift($templates, "archive-" . get_post_type() . ".twig");
 }
 
-$context["title"] = ucfirst(strtolower($context["title"]));
-
 $context["posts"] = new PostQuery();
 
 Timber::render($templates, $context);

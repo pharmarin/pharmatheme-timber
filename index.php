@@ -13,8 +13,8 @@
  * @since   Timber 0.1
  */
 
-use Timber\PostQuery;
 use Timber\Timber;
+use Timber\PostQuery;
 
 $templates = ["index.twig"];
 

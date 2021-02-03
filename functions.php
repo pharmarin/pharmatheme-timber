@@ -7,6 +7,11 @@
  * @subpackage  Timber
  * @since   Timber 0.1
  */
+ 
+use Timber\Timber;
+use Timber\Menu;
+use Timber\PostQuery;
+use Timber\Site;
 
 /**
  * If you are installing Timber as a Composer dependency in your theme, you'll need this block
@@ -16,7 +21,7 @@
 $composer_autoload = __DIR__ . "/vendor/autoload.php";
 if (file_exists($composer_autoload)) {
     require_once $composer_autoload;
-    $timber = new Timber\Timber();
+    $timber = new Timber();
 }
 
 /**
@@ -53,7 +58,7 @@ Timber::$autoescape = false;
  * We're going to configure our theme inside of a subclass of Timber\Site
  * You can move this to its own file and include here via php's include("MySite.php")
  */
-class StarterSite extends Timber\Site
+class StarterSite extends Site
 {
     /** Add timber support. */
     public function __construct()
@@ -65,14 +70,6 @@ class StarterSite extends Timber\Site
         add_action("init", [$this, "register_taxonomies"]);
         parent::__construct();
     }
-    /** This is where you can register custom post types. */
-    public function register_post_types()
-    {
-    }
-    /** This is where you can register custom taxonomies. */
-    public function register_taxonomies()
-    {
-    }
 
     /** This is where you add some context
      *
@@ -80,11 +77,7 @@ class StarterSite extends Timber\Site
      */
     public function add_to_context($context)
     {
-        $context["foo"] = "bar";
-        $context["stuff"] = "I am a value set in your functions.php file";
-        $context["notes"] =
-            "These values are available everytime you call Timber::context();";
-        $context["menu"] = new Timber\Menu();
+        $context["menu"] = new Menu();
         $context["site"] = $this;
         return $context;
     }
@@ -138,16 +131,6 @@ class StarterSite extends Timber\Site
         add_theme_support("menus");
     }
 
-    /** This Would return 'foo bar!'.
-     *
-     * @param string $text being 'foo', then returned 'foo bar!'.
-     */
-    public function myfoo($text)
-    {
-        $text .= " bar!";
-        return $text;
-    }
-
     /** This is where you can add your own functions to twig.
      *
      * @param string $twig get extension.
@@ -155,9 +138,16 @@ class StarterSite extends Timber\Site
     public function add_to_twig($twig)
     {
         $twig->addExtension(new Twig\Extension\StringLoaderExtension());
-        $twig->addFilter(new Twig\TwigFilter("myfoo", [$this, "myfoo"]));
         return $twig;
     }
 }
+
+Routes::map(':query', function($params){
+    if ($taxonomy = get_taxonomy($params['query'])) {
+        $query = 'taxonomy=' . $params['query'];
+        
+        Routes::load('archive-taxonomy.php', null, $query, 200);
+    }
+});
 
 new StarterSite();
