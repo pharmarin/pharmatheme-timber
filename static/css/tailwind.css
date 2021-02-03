@@ -14,3 +14,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-transition {
+    background-size:200% 1px;
+    @apply bg-left;
+    @apply transition-all;
+}
+
+.bg-transition:hover {
+    @apply bg-right;
+}
