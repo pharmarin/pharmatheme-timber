@@ -1,0 +1,5 @@
+<div class="py-4 flex justify-between items-center bg-white">
+	{% include "navbar-brand.twig" %}
+	{% include "navbar-menu.twig" with {'items': menu.get_items} %}
+	{% include "navbar-search.twig" %}
+</div>

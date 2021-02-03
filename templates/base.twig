@@ -9,17 +9,7 @@
 	<body class="{{body_class}} container mx-auto" data-template="base.twig">
 		<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
 		<header class="header" >
-			{% block header %}
-				<div class="py-4 flex items-center bg-white">
-					<a class="flex flex-row items-center px-4 py-2 space-x-2 text-xl bg-gradient-to-r from-green-400 via-blue-500 to-green-400 bg-transition text-white rounded-full shadow-lg"  href="{{site.url}}" rel="home">
-					    <i class="fa fa-plus"></i>
-						<span>{{site.name}}</span>
-					</a>
-					<nav id="nav-main" class="nav-main" role="navigation">
-						{% include "menu.twig" with {'items': menu.get_items} %}
-					</nav><!-- #nav -->
-				</div>
-			{% endblock %}
+			{% include "navbar.twig" %}
 		</header>
 
 		<section id="content" role="main" class="content-wrapper">

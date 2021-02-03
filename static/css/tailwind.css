@@ -15,12 +15,21 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-transition {
-    background-size:200% 1px;
-    @apply bg-left;
-    @apply transition-all;
+@layer base {
+    input {
+        @apply border rounded-lg border-gray-300 py-1 px-4;
+    }
 }
 
-.bg-transition:hover {
-    @apply bg-right;
+
+@layer utilities {
+    .bg-transition {
+        background-size:200% 1px;
+        @apply bg-left;
+        @apply transition-all;
+    }
+    
+    .bg-transition:hover {
+        @apply bg-right;
+    }
 }
