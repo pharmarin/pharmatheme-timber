@@ -1,64 +1,63 @@
 {% if posts.pagination.pages is not empty %}
-    <nav class="pagination-block">
-        <ul class="pagination">
-
-            {# First #}
+    <div class="bg-white mt-8 px-4 py-3 flex items-center justify-center border-t border-gray-200 sm:px-6">
+        <div class="flex-1 flex justify-between sm:hidden">
             {% if posts.pagination.pages|first and posts.pagination.pages|first.current != true %}
-                <li class="first btn">
-                    <a href="{{ posts.pagination.pages|first.link }}">First</a>
-                </li>
+                <a href="{{ posts.pagination.prev.link }}" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500">
+                    Précédent
+                </a>
             {% else %}
-                <li class="first btn disabled">
-                    <button disabled>First</button>
-                </li>
+                <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-gray-100 hover:text-gray-500">
+                    Précédent
+                </span>
             {% endif %}
-
-            {# Previous #}
-            {% if posts.pagination.prev %}
-                <li class="prev btn">
-                    <a href="{{ posts.pagination.prev.link }}">Previous</a>
-                </li>
+            
+            {% if posts.pagination.pages|last and posts.pagination.pages|last.current != true %}
+                <a href="{{ posts.pagination.next.link }}" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500">
+                    Suivant
+                </a>
             {% else %}
-                <li class="prev btn disabled">
-                    <button disabled>Previous</button>
-                </li>
+                <span class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-gray-100 hover:text-gray-500">
+                    Suivant
+                </span>
             {% endif %}
-
-            {# Pages #}
+        </div>
+        
+        <nav class="relative z-0 inline-flex shadow-sm -space-x-px" aria-label="Pagination">
+            {% if posts.pagination.pages|first and posts.pagination.pages|first.current != true %}
+                <a href="{{ posts.pagination.prev.link }}" class="relative inline-flex items-center px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <span class="sr-only">Précédent</span>
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+            {% else %}
+                <span class="relative inline-flex items-center px-3 py-2 rounded-l-md border border-gray-300 bg-gray-100 text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <span class="sr-only">Précédent</span>
+                    <i class="fa fa-chevron-left"></i>
+                </span>
+            {% endif %}
+            
             {% for page in posts.pagination.pages %}
                 {% if page.link %}
-                    <li>
-                        <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
-                    </li>
+                    <a href="{{ page.link }}" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                        {{ page.title }}
+                    </a>
                 {% else %}
-                    <li class="current">
-                        <span class="{{ page.class }}">{{ page.title }}</span>
-                    </li>
+                    <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-gray-100 text-sm font-medium text-gray-700 hover:bg-gray-50">
+                        {{ page.title }}
+                    </span>
                 {% endif %}
             {% endfor %}
-
-            {# Next #}
+            
             {% if posts.pagination.next %}
-                <li class="next btn">
-                    <a href="{{ posts.pagination.next.link }}">Next</a>
-                </li>
+                <a href="{{ posts.pagination.next.link }}" class="relative inline-flex items-center px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <span class="sr-only">Suivant</span>
+                    <i class="fa fa-chevron-right"></i>
+                </a>
             {% else %}
-                <li class="next btn disabled">
-                    <button disabled>Next</button>
-                </li>
+                <span class="relative inline-flex items-center px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <span class="sr-only">Suivant</span>
+                    <i class="fa fa-chevron-right"></i>
+                </span>
             {% endif %}
-
-            {# Last #}
-            {% if posts.pagination.pages|last and posts.pagination.pages|last.current != true %}
-                <li class="last btn">
-                    <a href="{{ posts.pagination.pages|last.link }}">Last</a>
-                </li>
-            {% else %}
-                <li class="last btn disabled">
-                    <button disabled>Last</button>
-                </li>
-            {% endif %}
-
-        </ul>
-    </nav>
+        </nav>
+    </div>
 {% endif %}
