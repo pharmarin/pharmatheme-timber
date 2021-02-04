@@ -6,7 +6,8 @@ module.exports = {
     },
     variants: {
         extend: {
-            borderRadius: ['first']
+            borderRadius: ['first'],
+            margin: ['first', 'last']
         }
     },
     plugins: [
