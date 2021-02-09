@@ -1,0 +1,9 @@
+{% extends "single.twig" %}
+
+{% block subtitle %}
+    <div class="text-gray-800 italic">
+        {% for laboratoire in post.terms('laboratoire') %}
+            <a href="{{ laboratoire.link }}">{{ laboratoire.name }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}
