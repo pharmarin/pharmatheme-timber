@@ -1,9 +1,11 @@
 <article class="tease tease-{{post.post_type}}" id="tease-{{post.ID}}">
 	{% block content %}
-		<h2 class="h2"><a href="{{post.link}}">{{post.title}}</a></h2>
-		<p>{{post.preview}}</p>
-		{% if post.get_thumbnail %}
-			<img src="{{post.thumbnail.src}}" />
-		{% endif %}
+		{% include "partial/card.twig" with {
+            title: post.title,
+            link: post.link,
+            content: post.preview.length(25), 
+            thumbnail: post.thumbnail.src,
+            tags: post.tags
+        } %}
 	{% endblock %}
 </article>
