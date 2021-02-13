@@ -9,43 +9,27 @@
                         <img class="w-48 border rounded-md" src="{{ post.thumbnail.src }}" />
                     </a>
                 </div>
-                <section class="article-content w-full">
-                    <div class="flex flex-col">
-                        {% block title %}
-                            <h1 class="text-2xl font-bold">{{ post.title }}</h1>
-                        {% endblock %}
-                        {% block subtitle %}{% endblock %}
-                        <p class="blog-author text-sm text-gray-600">
-                            Posté par <a href="{{post.author.path}}"> {{ post.author.name }} </a> le <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
-                        </p>
-                        <a class="italic text-gray-400 text-xs" href="{{ post.edit_link }}">Modifier le post</a>
-                    </div>
-                    <div class="article-body w-full mt-4">
-                        {{post.content}}
-                        {% block content_after %}{% endblock %}
-                    </div>
-                </section>
+                <div>
+                    <section class="article-content w-full">
+                        <div class="flex flex-col">
+                            {% block title %}
+                                <h1 class="text-2xl font-bold">{{ post.title }}</h1>
+                            {% endblock %}
+                            {% block subtitle %}{% endblock %}
+                            <p class="blog-author text-sm text-gray-600">
+                                Posté par <a href="{{post.author.path}}"> {{ post.author.name }} </a> le <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
+                            </p>
+                            <a class="italic text-gray-400 text-xs" href="{{ post.edit_link }}">Modifier le post</a>
+                        </div>
+                        <div class="article-body w-full mt-4">
+                            {{post.content}}
+                            {% block content_after %}{% endblock %}
+                        </div>
+                    </section>
+
+                    {% include "comments.twig" %}
+                </div>
 			</div>
-
-			<!-- comment box -->
-			<section class="comment-box">
-				<!-- comments -->
-				<div class="comments">
-				    {% if post.comments %}
-					<h3> comments </h3>
-					{% for cmt in post.comments %}
-					    {% include "comment.twig" with {comment:cmt} %}
-					{% endfor %}
-				    {% endif %}
-				</div>
-
-				{% if post.comment_status == "closed" %}
-					<p> comments for this post are closed </p>
-				{% else %}
-				    <!-- comment form -->
-				    {% include "comment-form.twig" %}
-				{% endif %}
-			</section>
 		</article>
 	</div><!-- /content-wrapper -->
 {% endblock %}

@@ -1,0 +1,6 @@
+<button class="py-1 px-2 rounded-2xl text-white font-bold bg-gradient-to-br
+    {% if color is same as("warning") %} from-red-500 to-yellow-400
+    {% elseif color is same as("success") %} from-green-400 to-blue-400
+    {% endif %}" type="{{ options.type|default("submit") }}" name="{{ options.name }}">
+    {{ label }}
+</button>

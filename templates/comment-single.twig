@@ -1,0 +1,23 @@
+<div class="blog-comment {{comment.comment_type}}" id="blog-comment-{{comment.ID}}">
+	<div class="w-full rounded-lg bg-white p-2">
+    	<h5 class="comment-author text-sm italic text-gray-500">{{comment.author.name}}</h5>
+    	<div class="comment-content">{{comment.comment_content|wpautop}}</div>
+	</div>
+
+	<section class="comment-box ml-4">
+		
+		<!-- comment form -->
+		{% include "comment-form.twig" with { child: true } %}
+
+		<!-- child comments -->
+		{% if comment.children|length > 0 %}
+			<h4> replies </h4>
+			<div class="comments">
+				{% for response in comment.children %}
+					{% include "comment-single.twig" with { comment: response } %}
+				{% endfor %}
+			</div>
+		{% endif %}
+
+	</section>
+</div>
