@@ -19,7 +19,7 @@ use Timber\PostQuery;
 $templates = ["index.twig"];
 
 $context = Timber::context();
-$context["posts"] = new PostQuery();
+$context["posts"] = new PostQuery(false, POST_MAP);
 
 if (is_home()) {
   array_unshift($templates, "front-page.twig", "home.twig");

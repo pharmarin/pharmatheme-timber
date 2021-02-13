@@ -11,7 +11,7 @@ use Timber\PostQuery;
 use Timber\Timber;
 
 $context = Timber::context();
-$context["posts"] = new PostQuery();
+$context["posts"] = new PostQuery(false, POST_MAP);
 $context["post_type"] = isset($_GET['type']) ? $_GET['type'] : "";
 $context["post_types"] = [
     [

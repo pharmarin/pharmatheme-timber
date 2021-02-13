@@ -25,6 +25,11 @@ if (file_exists($composer_autoload)) {
     $loader->add('Models', __DIR__ . "models");
 }
 
+const POST_MAP = [
+    "aromatherapie" => "Models\AromatherapiePost",
+    "produit" => "Models\ProduitPost"
+];
+
 /**
  * This ensures that Timber is loaded and available as a PHP class.
  * If not, it gives an error message to help direct developers on where to activate
@@ -130,6 +135,21 @@ class StarterSite extends Site
         ]);
 
         add_theme_support("menus");
+        
+        add_theme_support( 'infinite-scroll', array(
+            'container' => 'infinite-loop-content',
+            'footer' => false,
+            'render' => [$this, 'render_infinite_scroll']
+        ) );
+    }
+    
+    public function render_infinite_scroll()
+    {
+        $context = [
+            'posts' => Timber::get_posts(false, POST_MAP)
+        ];
+        
+        Timber::render("templates/archive-loop.twig", $context);
     }
 
     /** This is where you can add your own functions to twig.

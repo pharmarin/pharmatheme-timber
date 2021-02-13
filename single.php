@@ -13,10 +13,7 @@ use Timber\Timber;
 
 $context = Timber::context();
 
-$timber_post = Timber::get_post(false, [
-    "aromatherapie" => "Models\AromatherapiePost",
-    "produit" => "Models\ProduitPost"
-]);
+$timber_post = Timber::get_post(false, POST_MAP);
 
 $context["post"] = $timber_post;
 

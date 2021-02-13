@@ -1,7 +1,8 @@
-<div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-	{% endfor %}
+<div id="infinite-loop-content">
+    {% include "archive-loop.twig" %}
 </div>
 
-{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+{# 
+    No use since we are using Jetpack infinite scroll 
+    {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+#}
