@@ -20,6 +20,16 @@
   },
   "devDependencies": {
     "@prettier/plugin-php": "^0.16.1",
+    "husky": ">=4",
+    "lint-staged": ">=10",
     "prettier": "^2.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
