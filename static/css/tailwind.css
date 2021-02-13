@@ -16,45 +16,49 @@
 @tailwind utilities;
 
 @layer base {
-h1 {
-    @apply text-3xl font-bold mb-1
-}
+  h1 {
+    @apply text-3xl font-bold mb-1;
+  }
 
-h2 {
-    @apply text-2xl font-bold mb-1
-}
+  h2 {
+    @apply text-2xl font-bold mb-1;
+  }
 
-h3 {
-    @apply text-xl font-bold mb-1
-}
+  h3 {
+    @apply text-xl font-bold mb-1;
+  }
 
-h4 {
-    @apply text-lg font-bold mb-1
-}
+  h4 {
+    @apply text-lg font-bold mb-1;
+  }
 
+  h5 {
+    @apply text-sm font-bold mb-1;
+  }
 
-h5 {
-    @apply text-sm font-bold mb-1
-}
+  h6 {
+    @apply text-xs font-bold mb-1;
+  }
 
-h6 {
-    @apply text-xs font-bold mb-1
-}
-
-    h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-child), h5:not(:first-child), h6:not(:first-child) {
-        @apply mt-2
-    }
+  h1:not(:first-child),
+  h2:not(:first-child),
+  h3:not(:first-child),
+  h4:not(:first-child),
+  h5:not(:first-child),
+  h6:not(:first-child) {
+    @apply mt-2;
+  }
 
   input {
     @apply border rounded-lg border-gray-300 py-1 px-4;
   }
-  
+
   ul {
-      @apply list-disc list-inside
+    @apply list-disc list-inside;
   }
-  
+
   ol {
-      @apply list-decimal list-inside
+    @apply list-decimal list-inside;
   }
 }
 
