@@ -1,28 +1,28 @@
-<div class="rounded overflow-hidden shadow-lg">
-    {% if thumbnail %}
-    	<img class="max-h-40 w-full object-cover" src="{{ thumbnail }}" />
-    {% endif %}
-    
-    <div class="px-6 py-4">
-        <div class="font-bold text-xl">
-            {% if link %}<a href="{{ link }}">{% endif %}
+<{{ link  ? "a href=\"#{link}\"" : 'div' }}>
+    <div class="rounded overflow-hidden shadow-lg">
+        {% if thumbnail %}
+        	<img class="max-h-40 w-full object-cover" src="{{ thumbnail }}" />
+        {% endif %}
+        
+        <div class="px-6 py-4">
+            <div class="font-bold text-xl">
                 {{ title }}
-            {% if link %}</a>{% endif %}
+            </div>
+            <div class="italic text-lg mb2">
+                {{ subtitle }}
+            </div>
+        
+            <p class="text-gray-700 text-base">{{ content.read_more('Voir la suite') }}</p>
         </div>
-        <div class="italic text-lg mb2">
-            {{ subtitle }}
+        
+        <div class="px-6 py-4">
+            {% for tag in tags %}
+                <a href="{{ tag.link }}">
+                    <span class="inline-block bg-gray-200 rounded-full mb-1 px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+                        #{{ tag.name }}
+                    </span>
+                </a>
+            {% endfor %}
         </div>
-    
-        <p class="text-gray-700 text-base">{{ content.read_more('Voir la suite') }}</p>
     </div>
-    
-    <div class="px-6 py-4">
-        {% for tag in tags %}
-            <a href="{{ tag.link }}">
-                <span class="inline-block bg-gray-200 rounded-full mb-1 px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                    #{{ tag.name }}
-                </span>
-            </a>
-        {% endfor %}
-    </div>
-</div>
+</{{ link ? "a" : "div" }}>

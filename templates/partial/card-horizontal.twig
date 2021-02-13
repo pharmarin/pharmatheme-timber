@@ -1,4 +1,4 @@
-<{% if link %}a href="{{ link }}"{% else %}div{% endif %}>
+<{{ link  ? "a href=\"#{link}\"" : "div" }}>
     <div class="flex w-full rounded-md shadow-lg">
         <div class="p-2">
             <img class="w-32 h-48 object-contain" src="{{ thumbnail }}" />
@@ -11,4 +11,4 @@
             </div>
         </div>
     </div>
-</{% if link %}a{% else %}div{% endif %}>
+</{{ link ? "a" : "div" }}>
