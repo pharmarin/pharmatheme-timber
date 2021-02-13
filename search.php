@@ -16,11 +16,11 @@ if (get_search_query() === "") {
     wp_redirect(home_url());
 }
 
-$templates = ["search.twig", "archive.twig", "index.twig"];
+$templates = ["archive.twig", "index.twig"];
 
 $context = Timber::context();
-$context["title"] = "Search results for " . get_search_query();
-$context["posts"] = new PostQuery(false, POST_PAGE);
+$context["title"] = "Résultat de la recherche pour " . get_search_query();
+$context["posts"] = new PostQuery(false, POST_MAP);
 $context["query"] = get_search_query();
 
 Timber::render($templates, $context);
