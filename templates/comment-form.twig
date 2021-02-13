@@ -1,27 +1,17 @@
 <div class="comment-form relative">
     {% if child %}
-        <h3 class="text-lg font-bold mb-1 mt-2">Répondre au commentaire</h3>
+        <h3 class="text-lg text-white font-bold mb-1 mt-2">Répondre au commentaire</h3>
     {% else %}
-        <h3 class="text-xl font-bold mb-1 mt-2">Ajouter un commentaire</h3>
+        <h3 class="text-xl text-white font-bold mb-1 mt-2">Ajouter un commentaire</h3>
     {% endif %}
     </h3>
+    
+    {% if  user %}
     <form class="comment-form flex flex-col {{ child ? "" : "mb-4" }}" method="post" action="{{ site.site_url~'/wp-comments-post.php' }}">
-        {% if  user %}
-            <input type="hidden" name="email" value="{{ user.email }}">
-            <input type="hidden" name="author" value="{{ user.name }}">
-            <input type="hidden" name="url" value="{{ user.link }}">
-        {% else %}
-            <label>Email<br>
-                <input required name="email" type="email" id="email">
-            </label>
-            <label>Name<br>
-                <input required name="author" type="text">
-            </label>
-            <label>Website<br>
-                <input name="url" type="url">
-            </label>
-        {% endif %}
-        <textarea class="p-2 rounded-xl" placeholder="Ajouter un commentaire..." name="comment" cols="60" rows="2"></textarea>
+        <input type="hidden" name="email" value="{{ user.email }}">
+        <input type="hidden" name="author" value="{{ user.name }}">
+        <input type="hidden" name="url" value="{{ user.link }}">
+        <textarea class="p-2 w-full rounded-xl" placeholder="Ajouter un commentaire..." name="comment" rows="2"></textarea>
         <input name="comment_post_ID" value="{{ post.id }}" type="hidden">
         <input name="comment_parent"  value="{{ comment.ID|default('0') }}" type="hidden">
         <div class="ml-auto mt-2">
@@ -29,4 +19,7 @@
             {% include "partial/button.twig" with { color: "warning", label: "Annuler", type: "reset" } %}
         </div>
     </form>
+    {% else %}
+        Vous devez vous connecter pour poster un commentaire
+    {% endif %}
 </div>

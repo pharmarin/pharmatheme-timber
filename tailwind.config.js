@@ -1,8 +1,15 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: ["**/*.twig"],
   darkMode: false,
   theme: {
-    extend: {},
+    extend: {
+        colors: {
+            green: colors.green,
+            teal: colors.teal
+        }
+    }
   },
   variants: {
     extend: {

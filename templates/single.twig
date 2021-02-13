@@ -1,27 +1,31 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{ post.post_type }} w-2/3 mx-auto" id="post-{{ post.ID }}">
-			<div class="flex flex-row">
-                <div class="flex-none mr-4">
+	<div class="content-wrapper mb-4">
+		<article class="post-type-{{ post.post_type }} mx-auto max-w-3xl" id="post-{{ post.ID }}">
+			<div class="flex flex-row sm:space-x-8">
+                <div class="flex-none hidden sm:flex">
                     <a href="{{ post.thumbnail.src }}" target="_blank" />
                         <img class="w-48 border rounded-md" src="{{ post.thumbnail.src }}" />
                     </a>
                 </div>
-                <div>
+                <div class="w-full">
                     <section class="article-content w-full">
-                        <div class="flex flex-col">
-                            {% block title %}
-                                <h1 class="text-2xl font-bold">{{ post.title }}</h1>
-                            {% endblock %}
-                            {% block subtitle %}{% endblock %}
-                            <p class="blog-author text-sm text-gray-600">
-                                Posté par <a href="{{post.author.path}}"> {{ post.author.name }} </a> le <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
-                            </p>
-                            <a class="italic text-gray-400 text-xs" href="{{ post.edit_link }}">Modifier le post</a>
+                        <div class="flex flex-col relative sm:-mx-4 mb-8">
+                            <div class="absolute h-full w-full rounded-2xl bg-gray-300 transform -rotate-3"></div>
+                            <div class="absolute h-full w-full rounded-2xl bg-gradient-to-br from-green-500 to-teal-400 transform -rotate-1"></div>
+                            <div class="relative p-4 pb-1">
+                                {% block title %}
+                                    <h1 class="text-2xl text-white font-bold">{{ post.title }}</h1>
+                                {% endblock %}
+                                {% block subtitle %}{% endblock %}
+                                <p class="blog-author text-sm text-green-900">
+                                    Posté par <a href="{{post.author.path}}"> {{ post.author.name }} </a> le <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
+                                </p>
+                                <a class="italic text-green-800 text-xs" href="{{ post.edit_link }}">Modifier le post</a>
+                            </div>
                         </div>
-                        <div class="article-body w-full mt-4">
+                        <div class="article-body w-full">
                             {{post.content}}
                             {% block content_after %}{% endblock %}
                         </div>
