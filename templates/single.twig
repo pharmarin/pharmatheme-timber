@@ -6,7 +6,7 @@
 			<div class="flex flex-row">
                 <div class="flex-none mr-4">
                     <a href="{{ post.thumbnail.src }}" target="_blank" />
-                        <img class="w-48 h-48 border rounded-md" src="{{ post.thumbnail.src }}" />
+                        <img class="w-48 border rounded-md" src="{{ post.thumbnail.src }}" />
                     </a>
                 </div>
                 <section class="article-content w-full">
@@ -22,6 +22,7 @@
                     </div>
                     <div class="article-body w-full mt-4">
                         {{post.content}}
+                        {% block content_after %}{% endblock %}
                     </div>
                 </section>
 			</div>

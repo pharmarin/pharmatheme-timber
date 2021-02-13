@@ -2,7 +2,7 @@
 
 {% block subtitle %}
     <div class="text-gray-800 italic">
-        {% for laboratoire in post.terms('laboratoire') %}
+        {% for laboratoire in post.laboratoire %}
             <a href="{{ laboratoire.link }}">{{ laboratoire.name }}</a>
         {% endfor %}
     </div>

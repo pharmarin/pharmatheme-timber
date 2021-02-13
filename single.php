@@ -12,7 +12,12 @@
 use Timber\Timber;
 
 $context = Timber::context();
-$timber_post = Timber::get_post();
+
+$timber_post = Timber::get_post(false, [
+    "aromatherapie" => "Models\AromatherapiePost",
+    "produit" => "Models\ProduitPost"
+]);
+
 $context["post"] = $timber_post;
 
 if (post_password_required($timber_post->ID)) {

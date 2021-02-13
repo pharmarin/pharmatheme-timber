@@ -4,10 +4,13 @@
     {% endif %}
     
     <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">
+        <div class="font-bold text-xl">
             {% if link %}<a href="{{ link }}">{% endif %}
                 {{ title }}
             {% if link %}</a>{% endif %}
+        </div>
+        <div class="italic text-lg mb2">
+            {{ subtitle }}
         </div>
     
         <p class="text-gray-700 text-base">{{ content.read_more('Voir la suite') }}</p>
