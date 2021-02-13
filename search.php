@@ -13,7 +13,7 @@ use Timber\PostQuery;
 use Timber\Timber;
 
 if (get_search_query() === "") {
-    wp_redirect( home_url() );
+    wp_redirect(home_url());
 }
 
 $templates = ["search.twig", "archive.twig", "index.twig"];

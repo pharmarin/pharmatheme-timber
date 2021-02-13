@@ -12,70 +12,70 @@ use Timber\Timber;
 
 $context = Timber::context();
 $context["posts"] = new PostQuery(false, POST_MAP);
-$context["post_type"] = isset($_GET['type']) ? $_GET['type'] : "";
+$context["post_type"] = isset($_GET["type"]) ? $_GET["type"] : "";
 $context["post_types"] = [
     [
         "slug" => "",
-        "name" => "Articles"
+        "name" => "Articles",
     ],
     [
         "slug" => "produit",
         "name" => "Produits",
         "cards" => [
             [
-              "title" => "Tous les produits",
-              "link" => "produits/"
+                "title" => "Tous les produits",
+                "link" => "produits/",
             ],
             [
-              "title" => "Trier par laboratoire",
-              "link" => "laboratoire/"
-            ]
-        ]
+                "title" => "Trier par laboratoire",
+                "link" => "laboratoire/",
+            ],
+        ],
     ],
     [
         "slug" => "aromatherapie",
         "name" => "Huiles essentielles",
         "cards" => [
             [
-              "title" => "Toutes les huiles essentielles",
-              "link" => "aromatherapie/"
+                "title" => "Toutes les huiles essentielles",
+                "link" => "aromatherapie/",
             ],
             [
-              "title" => "Trier par propriété",
-              "link" => "proprietes/"
+                "title" => "Trier par propriété",
+                "link" => "proprietes/",
             ],
             [
-              "title" => "Trier par utilisation",
-              "link" => "usages/"
+                "title" => "Trier par utilisation",
+                "link" => "usages/",
             ],
             [
-              "title" => "Trier par molécule principale",
-              "link" => "principes_actifs/"
-            ]
-        ]
+                "title" => "Trier par molécule principale",
+                "link" => "principes_actifs/",
+            ],
+        ],
     ],
     [
         "slug" => "phytotherapie",
         "name" => "Plantes",
         "cards" => [
             [
-              "title" => "Toutes les plantes",
-              "link" => "phytotherapie/"
+                "title" => "Toutes les plantes",
+                "link" => "phytotherapie/",
             ],
             [
-              "title" => "Trier par propriété",
-              "link" => "proprietes/"
+                "title" => "Trier par propriété",
+                "link" => "proprietes/",
             ],
             [
-              "title" => "Trier par utilisation",
-              "link" => "usages/"
+                "title" => "Trier par utilisation",
+                "link" => "usages/",
             ],
             [
-              "title" => "Trier par molécule principale",
-              "link" => "principes_actifs/"
-            ]
-        ]
-    ]
+                "title" => "Trier par molécule principale",
+                "link" => "principes_actifs/",
+            ],
+        ],
+    ],
 ];
 
-Timber::render('front-page.twig', $context);
+Timber::render("front-page.twig", $context);

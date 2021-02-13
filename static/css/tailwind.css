@@ -16,20 +16,19 @@
 @tailwind utilities;
 
 @layer base {
-    input {
-        @apply border rounded-lg border-gray-300 py-1 px-4;
-    }
+  input {
+    @apply border rounded-lg border-gray-300 py-1 px-4;
+  }
 }
 
-
 @layer utilities {
-    .bg-transition {
-        background-size:200% 1px;
-        @apply bg-left;
-        @apply transition-all;
-    }
-    
-    .bg-transition:hover {
-        @apply bg-right;
-    }
+  .bg-transition {
+    background-size: 200% 1px;
+    @apply bg-left;
+    @apply transition-all;
+  }
+
+  .bg-transition:hover {
+    @apply bg-right;
+  }
 }

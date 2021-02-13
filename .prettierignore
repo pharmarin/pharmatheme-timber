@@ -1,0 +1,4 @@
+style.css
+vendor
+node_modules
+*.lock

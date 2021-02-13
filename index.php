@@ -22,7 +22,7 @@ $context = Timber::context();
 $context["posts"] = new PostQuery(false, POST_MAP);
 
 if (is_home()) {
-  array_unshift($templates, "front-page.twig", "home.twig");
+    array_unshift($templates, "front-page.twig", "home.twig");
 }
 
 Timber::render($templates, $context);

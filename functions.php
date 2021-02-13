@@ -7,7 +7,7 @@
  * @subpackage  Timber
  * @since   Timber 0.1
  */
- 
+
 use Timber\Timber;
 use Timber\Menu;
 use Timber\PostQuery;
@@ -22,12 +22,12 @@ $composer_autoload = __DIR__ . "/vendor/autoload.php";
 if (file_exists($composer_autoload)) {
     $loader = require_once $composer_autoload;
     $timber = new Timber();
-    $loader->add('Models', __DIR__ . "models");
+    $loader->add("Models", __DIR__ . "models");
 }
 
 const POST_MAP = [
     "aromatherapie" => "Models\AromatherapiePost",
-    "produit" => "Models\ProduitPost"
+    "produit" => "Models\ProduitPost",
 ];
 
 /**
@@ -135,20 +135,20 @@ class StarterSite extends Site
         ]);
 
         add_theme_support("menus");
-        
-        add_theme_support( 'infinite-scroll', array(
-            'container' => 'infinite-loop-content',
-            'footer' => false,
-            'render' => [$this, 'render_infinite_scroll']
-        ) );
+
+        add_theme_support("infinite-scroll", [
+            "container" => "infinite-loop-content",
+            "footer" => false,
+            "render" => [$this, "render_infinite_scroll"],
+        ]);
     }
-    
+
     public function render_infinite_scroll()
     {
         $context = [
-            'posts' => Timber::get_posts(false, POST_MAP)
+            "posts" => Timber::get_posts(false, POST_MAP),
         ];
-        
+
         Timber::render("templates/archive-loop.twig", $context);
     }
 
@@ -163,11 +163,11 @@ class StarterSite extends Site
     }
 }
 
-Routes::map(':query', function($params){
-    if ($taxonomy = get_taxonomy($params['query'])) {
-        $query = 'taxonomy=' . $params['query'];
-        
-        Routes::load('archive-taxonomy.php', null, $query, 200);
+Routes::map(":query", function ($params) {
+    if ($taxonomy = get_taxonomy($params["query"])) {
+        $query = "taxonomy=" . $params["query"];
+
+        Routes::load("archive-taxonomy.php", null, $query, 200);
     }
 });
 

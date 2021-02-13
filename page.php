@@ -29,6 +29,6 @@ $context = Timber::context();
 $timber_post = new Post();
 $context["post"] = $timber_post;
 Timber::render(
-  ["page-" . $timber_post->post_name . ".twig", "page.twig"],
-  $context
+    ["page-" . $timber_post->post_name . ".twig", "page.twig"],
+    $context
 );
