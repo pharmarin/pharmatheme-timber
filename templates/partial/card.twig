@@ -15,14 +15,16 @@
             <p class="text-gray-700 text-base">{{ content.read_more('Voir la suite') }}</p>
         </div>
         
-        <div class="px-6 py-4">
-            {% for tag in tags %}
-                <a href="{{ tag.link }}">
-                    <span class="inline-block bg-gray-200 rounded-full mb-1 px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                        #{{ tag.name }}
-                    </span>
-                </a>
-            {% endfor %}
-        </div>
+        {% if tags %}
+            <div class="px-6 py-4">
+                {% for tag in tags %}
+                    <a href="{{ tag.link }}">
+                        <span class="inline-block bg-gray-200 rounded-full mb-1 px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+                            #{{ tag.name }}
+                        </span>
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 </{{ link ? "a" : "div" }}>

@@ -22,12 +22,15 @@
                                 <p class="blog-author text-sm text-green-900">
                                     Posté par <a href="{{post.author.path}}"> {{ post.author.name }} </a> le <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
                                 </p>
-                                <a class="italic text-green-800 text-xs" href="{{ post.edit_link }}">Modifier le post</a>
+                                {% if user %}
+                                    <a class="italic text-green-800 text-xs" href="{{ post.edit_link }}">Modifier le post</a>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="article-body w-full">
-                            {{post.content}}
-                            {% block content_after %}{% endblock %}
+                            {% block post %}
+                                {{post.content}}
+                            {% endblock %}
                         </div>
                     </section>
 

@@ -38,9 +38,6 @@ if (is_day()) {
     array_unshift($templates, "archive-" . get_post_type() . ".twig");
 }
 
-$context["posts"] = new PostQuery(false, [
-    "aromatherapie" => "Models\AromatherapiePost",
-    "produit" => "Models\ProduitPost",
-]);
+$context["posts"] = new PostQuery(false, POST_MAP);
 
 Timber::render($templates, $context);

@@ -20,6 +20,6 @@
         </div>
     </form>
     {% else %}
-        Vous devez vous connecter pour poster un commentaire
+        Vous devez <a class="text-gray-800" href="{{ function('wp_login_url', function('Timber\URLHelper::get_current_url')) }}">vous connecter</a> pour poster un commentaire
     {% endif %}
 </div>
