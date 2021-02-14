@@ -1,0 +1,12 @@
+{% extends "tease.twig" %}
+
+{% block content %}
+	{% include "partial/card.twig" with {
+	    title: post.title,
+	    subtitle: post.nom_latin,
+	    link: post.link,
+	    content: "", 
+	    thumbnail: post.thumbnail.src,
+	    tags: post.tags
+    } %}
+{% endblock %}

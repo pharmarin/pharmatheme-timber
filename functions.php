@@ -27,6 +27,7 @@ if (file_exists($composer_autoload)) {
 
 const POST_MAP = [
     "aromatherapie" => "Models\AromatherapiePost",
+    "phytotherapie" => "Models\PhytotherapiePost",
     "produit" => "Models\ProduitPost",
 ];
 
